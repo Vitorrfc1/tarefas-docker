@@ -98,5 +98,7 @@ PostgreSQL
 
 # Observações:
 Não foi utilizado Docker Compose
+
 Comunicação via rede Docker customizada
+
 Backend conecta ao banco via hostname postgres
