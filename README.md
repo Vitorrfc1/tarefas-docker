@@ -47,34 +47,13 @@ docker build -t backend ./backend
 docker build --build-arg VITE_API_URL=http://localhost:3001 -t frontend ./frontend
 
 # 4. Banco de Dados (PostgreSQL)
-docker run -d \
-  --name postgres \
-  --network tarefas-network \
-  -e POSTGRES_USER=postgres \
-  -e POSTGRES_PASSWORD=postgres \
-  -e POSTGRES_DB=tarefasdb \
-  -v pgdata:/var/lib/postgresql/data \
-  postgres:16-alpine
+docker run -d --name postgres --network tarefas-network -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=tarefasdb -v pgdata:/var/lib/postgresql/data postgres:16-alpine
 
 # 5. Backend
-docker run -d \
-  --name backend \
-  --network tarefas-network \
-  -p 3001:3001 \
-  -e DB_HOST=postgres \
-  -e DB_PORT=5432 \
-  -e DB_USER=postgres \
-  -e DB_PASSWORD=postgres \
-  -e DB_NAME=tarefasdb \
-  -e PORT=3001 \
-  backend
+docker run -d --name backend --network tarefas-network -p 3001:3001 -e DB_HOST=postgres -e DB_PORT=5432 -e DB_USER=postgres -e DB_PASSWORD=postgres -e DB_NAME=tarefasdb -e PORT=3001 backend
 
 # 6. Frontend
-docker run -d \
-  --name frontend \
-  --network tarefas-network \
-  -p 80:80 \
-  frontend
+docker run -d --name frontend --network tarefas-network -p 80:80 frontend
 
 # Verificação
 docker ps
