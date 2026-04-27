@@ -81,19 +81,28 @@ docker ps
 
 # Acesso à Aplicação
 Frontend: http://localhost
+
 Backend API: http://localhost:3001
 
 # Funcionalidades
 Criar tarefas
+
 Listar tarefas
+
 Persistência em PostgreSQL
+
 
 # Tecnologias Utilizadas
 Docker
+
 Node.js
+
 Express
+
 React + Vite
+
 Nginx
+
 PostgreSQL
 
 # Observações:
